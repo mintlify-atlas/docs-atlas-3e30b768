@@ -1,6 +1,6 @@
 ---
 title: "Get Member — Retrieve a Member Profile by ID"
-sidebarTitle: "GET /members/:id"
+sidebarTitle: "Get Member"
 description: "Retrieve the full profile of a specific member within a Cliq program using their member ID. Requires a valid Bearer token with read permission."
 ---
 
@@ -9,7 +9,7 @@ The Get Member endpoint fetches the profile of a specific member within a progra
 ## Endpoint
 
 ```bash
-GET /programs/:program_id/members/:member_id
+GET /api/programs/:program_id/members/:member_id
 ```
 
 ## Authentication
@@ -68,7 +68,7 @@ GET /programs/:program_id/members/:member_id
 ## Example Request
 
 ```bash
-curl -X GET https://your-cliq-instance.com/programs/prog-1234-abcd-5678-efgh/members/mem-9abc-def0-1234-5678 \
+curl -X GET https://your-cliq-instance.com/api/programs/prog-1234-abcd-5678-efgh/members/mem-9abc-def0-1234-5678 \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 

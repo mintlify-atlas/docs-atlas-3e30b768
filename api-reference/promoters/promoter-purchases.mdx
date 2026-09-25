@@ -1,7 +1,7 @@
 ---
 title: "Get Purchases for a Promoter — Cliq API Reference"
 sidebarTitle: "Promoter Purchases"
-description: "GET /programs/:program_id/promoters/:promoter_id/purchases — Retrieve all purchase conversions referred by a specific promoter within a program."
+description: "GET /api/programs/:program_id/promoters/:promoter_id/purchases — Retrieve all purchase conversions referred by a specific promoter within a program."
 ---
 
 Use this endpoint to fetch all purchase conversion events attributed to a specific promoter within a program. Each record represents a transaction made by a contact who was referred by the promoter. You can optionally filter by a specific catalog item using the `item_id` query parameter.
@@ -9,7 +9,7 @@ Use this endpoint to fetch all purchase conversion events attributed to a specif
 ## Method and Path
 
 ```http
-GET /programs/:program_id/promoters/:promoter_id/purchases
+GET /api/programs/:program_id/promoters/:promoter_id/purchases
 ```
 
 ## Authentication
@@ -34,14 +34,6 @@ GET /programs/:program_id/promoters/:promoter_id/purchases
 
 <ParamField query="item_id" type="string">
   Filter purchases by a specific catalog item ID. When provided, only purchases of that item are returned.
-</ParamField>
-
-<ParamField query="skip" type="number">
-  Number of records to skip for pagination. Defaults to `0`.
-</ParamField>
-
-<ParamField query="take" type="number">
-  Maximum number of records to return per page. Defaults to `10`.
 </ParamField>
 
 ## Response
@@ -89,7 +81,7 @@ A successful request returns HTTP `200 OK`.
 ## Example
 
 ```bash
-curl -X GET "http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/purchases?skip=0&take=10" \
+curl -X GET "https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/purchases" \
   -H "Authorization: Bearer $TOKEN"
 ```
 

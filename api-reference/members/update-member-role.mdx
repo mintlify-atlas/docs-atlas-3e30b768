@@ -9,7 +9,7 @@ The Update Member Role endpoint changes the role or status of a member within a 
 ## Endpoint
 
 ```bash
-PATCH /programs/:program_id/promoters/:promoter_id/members/:member_id/role
+PATCH /api/programs/:program_id/promoters/:promoter_id/members/:member_id/role
 ```
 
 ## Authentication
@@ -55,7 +55,7 @@ PATCH /programs/:program_id/promoters/:promoter_id/members/:member_id/role
 ## Example Request
 
 ```bash
-curl -X PATCH https://your-cliq-instance.com/programs/prog-1234-abcd-5678-efgh/promoters/prom-aaaa-bbbb-cccc-dddd/members/mem-9abc-def0-1234-5678/role \
+curl -X PATCH https://your-cliq-instance.com/api/programs/prog-1234-abcd-5678-efgh/promoters/prom-aaaa-bbbb-cccc-dddd/members/mem-9abc-def0-1234-5678/role \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
   -H "Content-Type: application/json" \
   -d '{

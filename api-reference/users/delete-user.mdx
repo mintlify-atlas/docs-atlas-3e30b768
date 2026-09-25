@@ -1,6 +1,6 @@
 ---
 title: "Delete User — Remove a Cliq Admin User Account"
-sidebarTitle: "DELETE /users/:id"
+sidebarTitle: "Delete User"
 description: "Permanently delete a Cliq admin user account by user ID. This action is irreversible. Requires a valid Bearer token with delete permissions."
 ---
 
@@ -9,7 +9,7 @@ The Delete User endpoint permanently removes an admin user account from Cliq. On
 ## Endpoint
 
 ```bash
-DELETE /users/:user_id
+DELETE /api/users/:user_id
 ```
 
 ## Authentication
@@ -37,7 +37,7 @@ DELETE /users/:user_id
 ## Example Request
 
 ```bash
-curl -X DELETE https://your-cliq-instance.com/users/a1b2c3d4-e5f6-7890-abcd-ef1234567890 \
+curl -X DELETE https://your-cliq-instance.com/api/users/a1b2c3d4-e5f6-7890-abcd-ef1234567890 \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 
@@ -52,7 +52,7 @@ curl -X DELETE https://your-cliq-instance.com/users/a1b2c3d4-e5f6-7890-abcd-ef12
 ## Status Codes
 
 | Status Code | Description                                                        |
-|-------------|--------------------------------------------------------------------|
+|-------------|---------------------------------------------------------------------|
 | `204`       | No Content — user deleted successfully.                            |
 | `401`       | Unauthorized — missing or invalid Bearer token.                    |
 | `403`       | Forbidden — caller does not have permission to delete this user.   |

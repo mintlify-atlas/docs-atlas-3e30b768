@@ -9,7 +9,7 @@ Retrieve the API key currently associated with a program. This endpoint returns 
 ## Endpoint
 
 ```bash
-GET /programs/:program_id/api-keys
+GET /api/programs/:program_id/api-keys
 ```
 
 ## Authentication
@@ -54,7 +54,7 @@ Authorization: Bearer <your_token>
 ## Example
 
 ```bash
-curl -X GET https://your-cliq-instance.com/programs/prog_abc123/api-keys \
+curl -X GET https://your-cliq-instance.com/api/programs/prog_abc123/api-keys \
   -H "Authorization: Bearer <your_token>"
 ```
 

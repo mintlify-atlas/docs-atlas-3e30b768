@@ -1,6 +1,6 @@
 ---
 title: "Get Promoter of Member — Find a Member's Promoter"
-sidebarTitle: "GET /promoter"
+sidebarTitle: "Member Promoter"
 description: "Retrieve the promoter organization that a specific member belongs to within a Cliq program. Each member is associated with exactly one promoter per program."
 ---
 
@@ -9,7 +9,7 @@ The Get Promoter of Member endpoint returns the promoter that a given member is 
 ## Endpoint
 
 ```bash
-GET /programs/:program_id/members/:member_id/promoter
+GET /api/programs/:program_id/members/:member_id/promoter
 ```
 
 ## Authentication
@@ -59,7 +59,7 @@ GET /programs/:program_id/members/:member_id/promoter
 ## Example Request
 
 ```bash
-curl -X GET https://your-cliq-instance.com/programs/prog-1234-abcd-5678-efgh/members/mem-9abc-def0-1234-5678/promoter \
+curl -X GET https://your-cliq-instance.com/api/programs/prog-1234-abcd-5678-efgh/members/mem-9abc-def0-1234-5678/promoter \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 

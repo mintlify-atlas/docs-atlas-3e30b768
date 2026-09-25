@@ -1,7 +1,7 @@
 ---
 title: "List All Circles in a Program — Cliq API Reference"
-sidebarTitle: "GET /circles"
-description: "GET /programs/:program_id/circles — Retrieve a paginated list of all promoter segments (circles) within a given program."
+sidebarTitle: "Get Circles"
+description: "GET /api/programs/:program_id/circles — Retrieve a paginated list of all promoter segments (circles) within a given program."
 ---
 
 Use this endpoint to retrieve all circles that exist within a program. The response is paginated and can be filtered by circle name. Circles represent promoter segments and are used alongside commission functions to determine which payout rules apply to which group of promoters.
@@ -9,7 +9,7 @@ Use this endpoint to retrieve all circles that exist within a program. The respo
 ## Method and Path
 
 ```bash
-GET /programs/:program_id/circles
+GET /api/programs/:program_id/circles
 ```
 
 ## Authentication
@@ -59,8 +59,8 @@ A successful request returns HTTP `200 OK`.
         <ResponseField name="name" type="string">
           Display name of the circle.
         </ResponseField>
-        <ResponseField name="program_id" type="string (uuid)">
-          UUID of the program this circle belongs to.
+        <ResponseField name="is_default_circle" type="boolean">
+          Whether this circle is the default circle for the program.
         </ResponseField>
         <ResponseField name="created_at" type="string (ISO 8601)">
           Timestamp when the circle was created.
@@ -79,7 +79,7 @@ A successful request returns HTTP `200 OK`.
 ## Example
 
 ```bash
-curl -X GET "http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/circles?skip=0&take=10" \
+curl -X GET "https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/circles?skip=0&take=10" \
   -H "Authorization: Bearer $TOKEN"
 ```
 

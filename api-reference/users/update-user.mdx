@@ -1,6 +1,6 @@
 ---
 title: "Update User — Modify a Cliq Admin User's Profile"
-sidebarTitle: "PATCH /users/:id"
+sidebarTitle: "Update User"
 description: "Update a Cliq admin user's profile information including first name, last name, email, or password. All fields are optional. Requires Bearer token."
 ---
 
@@ -9,7 +9,7 @@ The Update User endpoint allows you to modify an existing admin user's profile. 
 ## Endpoint
 
 ```bash
-PATCH /users/:user_id
+PATCH /api/users/:user_id
 ```
 
 ## Authentication
@@ -61,7 +61,7 @@ All fields are optional. Include only the fields you wish to change.
 ## Example Request
 
 ```bash
-curl -X PATCH https://your-cliq-instance.com/users/a1b2c3d4-e5f6-7890-abcd-ef1234567890 \
+curl -X PATCH https://your-cliq-instance.com/api/users/a1b2c3d4-e5f6-7890-abcd-ef1234567890 \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
   -H "Content-Type: application/json" \
   -d '{
@@ -92,7 +92,7 @@ curl -X PATCH https://your-cliq-instance.com/users/a1b2c3d4-e5f6-7890-abcd-ef123
 ## Status Codes
 
 | Status Code | Description                                                        |
-|-------------|--------------------------------------------------------------------|
+|-------------|---------------------------------------------------------------------|
 | `204`       | No Content — user information updated successfully.                |
 | `400`       | Bad Request — invalid field values or mismatched password.         |
 | `401`       | Unauthorized — missing or invalid Bearer token.                    |

@@ -1,6 +1,6 @@
 ---
 title: "List Program Webhooks | Cliq API Reference"
-sidebarTitle: "GET /webhooks"
+sidebarTitle: "Get Webhooks"
 description: "Retrieve a paginated list of all webhooks registered for a program. Returns endpoint URLs and subscribed event types. Secrets are never included."
 ---
 
@@ -9,7 +9,7 @@ Returns all webhooks registered for a given program. Use this to audit which end
 ## Endpoint
 
 ```bash
-GET /programs/:program_id/webhooks
+GET /api/programs/:program_id/webhooks
 ```
 
 ## Authentication
@@ -70,7 +70,7 @@ Authorization: Bearer <your_token>
 ## Example
 
 ```bash
-curl -X GET "https://your-cliq-instance.com/programs/prog_abc123/webhooks?skip=0&take=10" \
+curl -X GET "https://your-cliq-instance.com/api/programs/prog_abc123/webhooks?skip=0&take=10" \
   -H "Authorization: Bearer <your_token>"
 ```
 

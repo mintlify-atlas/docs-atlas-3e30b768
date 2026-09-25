@@ -1,7 +1,7 @@
 ---
 title: "Get Program Analytics — Cliq API Reference"
 sidebarTitle: "Analytics"
-description: "GET /programs/:program_id/analytics — Fetch aggregate performance metrics for an affiliate program over a configurable time period or custom date range."
+description: "GET /api/programs/:program_id/analytics — Fetch aggregate performance metrics for an affiliate program over a configurable time period or custom date range."
 ---
 
 Retrieve aggregate performance analytics for an affiliate program. By default the response covers the past 30 days, but you can specify any predefined period shorthand or provide an explicit `startDate`/`endDate` range for precise reporting.
@@ -9,7 +9,7 @@ Retrieve aggregate performance analytics for an affiliate program. By default th
 ## Method and Path
 
 ```http
-GET /programs/:program_id/analytics
+GET /api/programs/:program_id/analytics
 ```
 
 ## Authentication
@@ -78,19 +78,19 @@ A successful request returns HTTP `200 OK`.
 
 ```bash
 # Last 30 days (default)
-curl -X GET "http://localhost:3001/programs/$PROGRAM_ID/analytics" \
+curl -X GET "https://your-cliq-instance.com/api/programs/$PROGRAM_ID/analytics" \
   -H "Authorization: Bearer $TOKEN"
 ```
 
 ```bash
 # Last 7 days using period shorthand
-curl -X GET "http://localhost:3001/programs/$PROGRAM_ID/analytics?period=7days" \
+curl -X GET "https://your-cliq-instance.com/api/programs/$PROGRAM_ID/analytics?period=7days" \
   -H "Authorization: Bearer $TOKEN"
 ```
 
 ```bash
 # Custom date range
-curl -X GET "http://localhost:3001/programs/$PROGRAM_ID/analytics?startDate=2024-01-01&endDate=2024-03-31" \
+curl -X GET "https://your-cliq-instance.com/api/programs/$PROGRAM_ID/analytics?startDate=2024-01-01&endDate=2024-03-31" \
   -H "Authorization: Bearer $TOKEN"
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: "Delete a Program Webhook | Cliq API Reference"
-sidebarTitle: "DELETE /webhooks/:id"
+sidebarTitle: "Delete Webhook"
 description: "Permanently delete a program webhook registration. Cliq will immediately stop sending event notifications to the previously registered endpoint URL."
 ---
 
@@ -13,7 +13,7 @@ Permanently removes a webhook from the program. Once deleted, Cliq will stop sen
 ## Endpoint
 
 ```bash
-DELETE /programs/:program_id/webhooks/:webhook_id
+DELETE /api/programs/:program_id/webhooks/:webhook_id
 ```
 
 ## Authentication
@@ -43,7 +43,7 @@ Authorization: Bearer <your_token>
 ## Example
 
 ```bash
-curl -X DELETE https://your-cliq-instance.com/programs/prog_abc123/webhooks/wh_uuid_here \
+curl -X DELETE https://your-cliq-instance.com/api/programs/prog_abc123/webhooks/wh_uuid_here \
   -H "Authorization: Bearer <your_token>"
 ```
 

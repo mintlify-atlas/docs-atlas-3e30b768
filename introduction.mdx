@@ -13,22 +13,22 @@ Most affiliate platforms are closed SaaS products: you hand over your conversion
 ## Key Features
 
 <CardGroup cols={3}>
-  <Card title="Self-Hosted" icon="server">
+  <Card title="Self-Hosted" icon="server" href="/quickstart">
     Deploy on your own infrastructure using Docker Compose. Your data never leaves your servers. PostgreSQL and Redis are the only runtime dependencies.
   </Card>
-  <Card title="REST API" icon="code">
+  <Card title="REST API" icon="code" href="/api-reference/introduction">
     Every action — creating programs, enrolling promoters, recording conversions — is available over a documented REST API with JSON responses and standard HTTP status codes.
   </Card>
-  <Card title="Multi-Tenant Programs" icon="building">
+  <Card title="Multi-Tenant Programs" icon="building" href="/concepts">
     Run multiple independent affiliate programs from a single Cliq instance. Each program has its own promoters, links, commissions, and conversion history.
   </Card>
-  <Card title="Role-Based Access Control" icon="shield-check">
+  <Card title="Role-Based Access Control" icon="shield-check" href="/configuration/authentication">
     Team members on a program can be admins or managers. Promoters have their own member hierarchy. Every API route is protected by granular permission checks.
   </Card>
-  <Card title="Referral Tracking" icon="chart-line">
+  <Card title="Referral Tracking" icon="chart-line" href="/concepts">
     Track signup and purchase conversions attributed to a referral link. Each contact is associated with the promoter whose link they used, with full history preserved.
   </Card>
-  <Card title="Real-Time Events" icon="bolt">
+  <Card title="Real-Time Events" icon="bolt" href="/events/overview">
     Webhook endpoints receive CloudEvents payloads the moment a conversion is recorded, so your downstream systems — CRMs, payment processors, email tools — stay in sync automatically.
   </Card>
 </CardGroup>

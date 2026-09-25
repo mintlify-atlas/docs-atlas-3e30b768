@@ -1,6 +1,6 @@
 ---
 title: "Member Sign Up — Register a New Member to a Program"
-sidebarTitle: "POST /signup"
+sidebarTitle: "Member Sign Up"
 description: "Register a new member into a Cliq affiliate program. Members access the promoter portal. This public endpoint does not require authentication."
 ---
 
@@ -9,7 +9,7 @@ The Member Sign Up endpoint registers a new member into a specific affiliate pro
 ## Endpoint
 
 ```bash
-POST /programs/:program_id/members/signup
+POST /api/programs/:program_id/members/signup
 ```
 
 ## Authentication
@@ -30,7 +30,7 @@ POST /programs/:program_id/members/signup
   The email address for the new member account. Must be unique within the program.
 </ParamField>
 
-<ParamField body="password" type="string" required>
+<ParamField body="password" type="string">
   The password for the new member account.
 </ParamField>
 
@@ -76,7 +76,7 @@ POST /programs/:program_id/members/signup
 ## Example Request
 
 ```bash
-curl -X POST https://your-cliq-instance.com/programs/prog-1234-abcd-5678-efgh/members/signup \
+curl -X POST https://your-cliq-instance.com/api/programs/prog-1234-abcd-5678-efgh/members/signup \
   -H "Content-Type: application/json" \
   -d '{
     "email": "alice.johnson@example.com",

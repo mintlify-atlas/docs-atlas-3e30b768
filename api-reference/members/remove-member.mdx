@@ -9,7 +9,7 @@ The Remove Member endpoint removes a member from a specific promoter's team with
 ## Endpoint
 
 ```bash
-PATCH /programs/:program_id/promoters/:promoter_id/members/:member_id
+PATCH /api/programs/:program_id/promoters/:promoter_id/members/:member_id
 ```
 
 ## Authentication
@@ -45,7 +45,7 @@ PATCH /programs/:program_id/promoters/:promoter_id/members/:member_id
 ## Example Request
 
 ```bash
-curl -X PATCH https://your-cliq-instance.com/programs/prog-1234-abcd-5678-efgh/promoters/prom-aaaa-bbbb-cccc-dddd/members/mem-9abc-def0-1234-5678 \
+curl -X PATCH https://your-cliq-instance.com/api/programs/prog-1234-abcd-5678-efgh/promoters/prom-aaaa-bbbb-cccc-dddd/members/mem-9abc-def0-1234-5678 \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 

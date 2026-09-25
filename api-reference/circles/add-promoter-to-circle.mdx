@@ -1,7 +1,7 @@
 ---
 title: "Add Promoters to a Circle — Cliq API Reference"
 sidebarTitle: "Add Promoters"
-description: "POST /programs/:program_id/circles/:circle_id/promoters — Assign one or more promoters to a circle to apply its commission rules to them."
+description: "POST /api/programs/:program_id/circles/:circle_id/promoters — Assign one or more promoters to a circle to apply its commission rules to them."
 ---
 
 Use this endpoint to add one or more promoters to a specific circle within a program. Supplying an array of promoter UUIDs moves those promoters into the target circle, which determines which commission function applies to their conversions. A promoter can belong to only one circle at a time — adding them to a new circle removes them from their previous one.
@@ -9,7 +9,7 @@ Use this endpoint to add one or more promoters to a specific circle within a pro
 ## Method and Path
 
 ```bash
-POST /programs/:program_id/circles/:circle_id/promoters
+POST /api/programs/:program_id/circles/:circle_id/promoters
 ```
 
 ## Authentication
@@ -47,7 +47,7 @@ A successful request returns HTTP `201 Created`.
 ## Example
 
 ```bash
-curl -X POST http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/circles/c1d2e3f4-0000-0000-0000-000000000002/promoters \
+curl -X POST https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/circles/c1d2e3f4-0000-0000-0000-000000000002/promoters \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{

@@ -1,7 +1,7 @@
 ---
 title: "Delete (Soft-Delete) a Referral Link — Cliq API"
-sidebarTitle: "DELETE /links/:id"
-description: "PATCH /programs/:program_id/promoters/:promoter_id/links/:link_id — Soft-delete a referral link, archiving it so existing conversion history is preserved."
+sidebarTitle: "Delete Link"
+description: "PATCH /api/programs/:program_id/promoters/:promoter_id/links/:link_id — Soft-delete a referral link, archiving it so existing conversion history is preserved."
 ---
 
 Use this endpoint to soft-delete a referral link belonging to a promoter within a program. Unlike a hard delete, this operation marks the link as archived rather than permanently removing it from the database, ensuring that historical conversion records tied to the link's `ref_val` remain intact and auditable.
@@ -13,7 +13,7 @@ Use this endpoint to soft-delete a referral link belonging to a promoter within 
 ## Method and Path
 
 ```bash
-PATCH /programs/:program_id/promoters/:promoter_id/links/:link_id
+PATCH /api/programs/:program_id/promoters/:promoter_id/links/:link_id
 ```
 
 ## Authentication
@@ -47,13 +47,13 @@ A successful request returns HTTP `200 OK`.
 </ResponseField>
 
 <Tip>
-  After soft-deleting a link, use `GET /programs/:program_id/promoters/:promoter_id/links/:link_id` to confirm the link's `status` has been set to `archived`.
+  After soft-deleting a link, use `GET /api/programs/:program_id/promoters/:promoter_id/links/:link_id` to confirm the link's `status` has been set to `archived`.
 </Tip>
 
 ## Example
 
 ```bash
-curl -X PATCH http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p1a2b3c4-0000-0000-0000-000000000010/links/l1f2e3d4-0000-0000-0000-000000000020 \
+curl -X PATCH https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p1a2b3c4-0000-0000-0000-000000000010/links/l1f2e3d4-0000-0000-0000-000000000020 \
   -H "Authorization: Bearer $TOKEN"
 ```
 

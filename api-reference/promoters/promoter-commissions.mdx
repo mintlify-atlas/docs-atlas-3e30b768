@@ -1,7 +1,7 @@
 ---
 title: "Get Commissions for a Promoter — Cliq API Reference"
 sidebarTitle: "Promoter Commissions"
-description: "GET /programs/:program_id/promoters/:promoter_id/commissions — List all commissions earned by a promoter with filters for type, link, contact, and sort order."
+description: "GET /api/programs/:program_id/promoters/:promoter_id/commissions — List commissions earned by a promoter, filterable by conversion type, link, and contact."
 ---
 
 Use this endpoint to retrieve a paginated list of commissions earned by a specific promoter within a program. You can filter by conversion type (signup or purchase), specific referral link, or contact, and sort by creation or update time. This is the primary endpoint for building commission ledgers and payout views.
@@ -9,7 +9,7 @@ Use this endpoint to retrieve a paginated list of commissions earned by a specif
 ## Method and Path
 
 ```http
-GET /programs/:program_id/promoters/:promoter_id/commissions
+GET /api/programs/:program_id/promoters/:promoter_id/commissions
 ```
 
 ## Authentication
@@ -114,7 +114,7 @@ A successful request returns HTTP `200 OK`.
 ## Example
 
 ```bash
-curl -X GET "http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/commissions?conversion_type=purchase&sort_by=updatedAt&sort_order=DESC&skip=0&take=10" \
+curl -X GET "https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/commissions?conversion_type=purchase&sort_by=updatedAt&sort_order=DESC&skip=0&take=10" \
   -H "Authorization: Bearer $TOKEN"
 ```
 

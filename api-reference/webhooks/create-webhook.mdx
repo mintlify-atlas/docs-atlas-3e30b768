@@ -1,7 +1,7 @@
 ---
 title: "Create a Program Webhook | Cliq API Reference"
-sidebarTitle: "POST /webhooks"
-description: "Register a webhook endpoint for a program. Cliq sends signed HTTP POST requests to your URL whenever a subscribed event occurs in real time."
+sidebarTitle: "Create Webhook"
+description: "Register a webhook endpoint for a program. Cliq sends signed HTTP POST requests to your URL whenever a subscribed event occurs in the program."
 ---
 
 Program webhooks allow your backend to receive real-time notifications when activity occurs in a Cliq program. When a subscribed event fires — such as a new signup, purchase, commission, or contact — Cliq delivers a signed HTTP POST to your registered URL. The `secret` you provide is used to sign each request so you can verify its authenticity.
@@ -12,15 +12,15 @@ Program webhooks allow your backend to receive real-time notifications when acti
 
 ## Endpoint
 
-```bash
-POST /programs/:program_id/webhooks
+```text
+POST /api/programs/:program_id/webhooks
 ```
 
 ## Authentication
 
 All requests require a Bearer token in the `Authorization` header.
 
-```bash
+```text
 Authorization: Bearer <your_token>
 ```
 
@@ -89,7 +89,7 @@ Authorization: Bearer <your_token>
 ## Example
 
 ```bash
-curl -X POST https://your-cliq-instance.com/programs/prog_abc123/webhooks \
+curl -X POST https://your-cliq-instance.com/api/programs/prog_abc123/webhooks \
   -H "Authorization: Bearer <your_token>" \
   -H "Content-Type: application/json" \
   -d '{

@@ -1,6 +1,6 @@
 ---
 title: "Update Member — Modify a Member's Profile Information"
-sidebarTitle: "PATCH /members/:id"
+sidebarTitle: "Update Member"
 description: "Update a member's profile details such as name, email, or password within a Cliq program. All fields are optional. Requires Bearer token."
 ---
 
@@ -9,7 +9,7 @@ The Update Member endpoint modifies the profile of an existing member within a p
 ## Endpoint
 
 ```bash
-PATCH /programs/:program_id/members/:member_id
+PATCH /api/programs/:program_id/members/:member_id
 ```
 
 ## Authentication
@@ -65,7 +65,7 @@ All fields are optional. Include only the fields you wish to change.
 ## Example Request
 
 ```bash
-curl -X PATCH https://your-cliq-instance.com/programs/prog-1234-abcd-5678-efgh/members/mem-9abc-def0-1234-5678 \
+curl -X PATCH https://your-cliq-instance.com/api/programs/prog-1234-abcd-5678-efgh/members/mem-9abc-def0-1234-5678 \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
   -H "Content-Type: application/json" \
   -d '{

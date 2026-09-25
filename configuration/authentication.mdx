@@ -4,7 +4,7 @@ sidebarTitle: "Authentication"
 description: "Cliq supports two auth methods: Bearer JWT tokens for interactive users and members, and API key pairs for server-to-server conversion tracking."
 ---
 
-Cliq protects every API route with authentication. There are two supported methods: **Bearer Token (JWT)** for human-operated flows such as managing programs and promoters, and **API Key** authentication for server-to-server calls such as recording signups and purchases. Most endpoints accept either method; the conversion endpoints (`POST /signups`, `POST /purchases`) require API key authentication because they are called from your backend, not from a logged-in user session.
+Cliq protects every API route with authentication. There are two supported methods: **Bearer Token (JWT)** for human-operated flows such as managing programs and promoters, and **API Key** authentication for server-to-server calls such as recording signups and purchases. Most endpoints accept either method; the conversion endpoints (`POST /api/signups`, `POST /api/purchases`) require API key authentication because they are called from your backend, not from a logged-in user session.
 
 <Tabs>
   <Tab title="Bearer Token (JWT)">

@@ -1,6 +1,6 @@
 ---
 title: "Delete Member — Permanently Delete a Member Account"
-sidebarTitle: "DELETE /members/:id"
+sidebarTitle: "Delete Member"
 description: "Permanently delete a member account from a Cliq program by member ID. This action is irreversible. Requires Bearer token with delete permission."
 ---
 
@@ -9,7 +9,7 @@ The Delete Member endpoint permanently removes a member account from a Cliq prog
 ## Endpoint
 
 ```bash
-DELETE /programs/:program_id/members/:member_id
+DELETE /api/programs/:program_id/members/:member_id
 ```
 
 ## Authentication
@@ -41,7 +41,7 @@ DELETE /programs/:program_id/members/:member_id
 ## Example Request
 
 ```bash
-curl -X DELETE https://your-cliq-instance.com/programs/prog-1234-abcd-5678-efgh/members/mem-9abc-def0-1234-5678 \
+curl -X DELETE https://your-cliq-instance.com/api/programs/prog-1234-abcd-5678-efgh/members/mem-9abc-def0-1234-5678 \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 

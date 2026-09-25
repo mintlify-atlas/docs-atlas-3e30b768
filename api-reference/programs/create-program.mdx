@@ -1,7 +1,7 @@
 ---
 title: "Create an Affiliate Program — Cliq API Reference"
 sidebarTitle: "Create Program"
-description: "POST /programs — Create a new affiliate or referral program. Requires a Bearer Token. Supply name, currency, website, visibility, and referral key type."
+description: "POST /api/programs — Create a new affiliate or referral program. Requires Bearer Token. Supply name, currency, website, visibility, and referral key type."
 ---
 
 Use this endpoint to create a new affiliate or referral program under the authenticated user's account. The user who creates the program is automatically assigned the `admin` role for that program.
@@ -9,13 +9,13 @@ Use this endpoint to create a new affiliate or referral program under the authen
 ## Method and Path
 
 ```http
-POST /programs
+POST /api/programs
 ```
 
 ## Authentication
 
 <Note>
-  A valid **Bearer Token** is required. Obtain one from `POST /users/login` and include it as `Authorization: Bearer <token>`.
+  A valid **Bearer Token** is required. Obtain one from `POST /api/users/login` and include it as `Authorization: Bearer <token>`.
 </Note>
 
 ## Request
@@ -123,7 +123,7 @@ A successful request returns HTTP `201 Created`.
 ## Example
 
 ```bash
-curl -X POST http://localhost:3001/programs \
+curl -X POST https://your-cliq-instance.com/api/programs \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{

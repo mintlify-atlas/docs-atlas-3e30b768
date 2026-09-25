@@ -1,7 +1,7 @@
 ---
 title: "Create a Promoter in a Program — Cliq API Reference"
-sidebarTitle: "POST /promoters"
-description: "POST /programs/:program_id/promoters — Create a new promoter affiliate inside a program. Requires a Bearer Token and member_id header."
+sidebarTitle: "Create Promoter"
+description: "POST /api/programs/:program_id/promoters — Create a new promoter affiliate inside a program. Requires a Bearer Token and member_id header."
 ---
 
 Use this endpoint to create a new promoter (affiliate) within an existing program. The caller must supply a `member_id` header identifying which program member is performing the action. Once created, the promoter can generate referral links, earn commissions, and be tracked through the program dashboard.
@@ -9,7 +9,7 @@ Use this endpoint to create a new promoter (affiliate) within an existing progra
 ## Method and Path
 
 ```http
-POST /programs/:program_id/promoters
+POST /api/programs/:program_id/promoters
 ```
 
 ## Authentication
@@ -82,7 +82,7 @@ A successful request returns HTTP `201 Created`.
 ## Example
 
 ```bash
-curl -X POST http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters \
+curl -X POST https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters \
   -H "Authorization: Bearer $TOKEN" \
   -H "member_id: m9z8y7x6-0000-0000-0000-000000000001" \
   -H "Content-Type: application/json" \

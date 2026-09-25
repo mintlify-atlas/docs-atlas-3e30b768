@@ -1,7 +1,7 @@
 ---
 title: "List Promoters in a Program — Cliq API Reference"
-sidebarTitle: "GET /promoters"
-description: "GET /programs/:program_id/promoters — Retrieve a paginated, filterable list of all promoters belonging to a program. Requires a Bearer Token."
+sidebarTitle: "List Promoters"
+description: "GET /api/programs/:program_id/promoters — Retrieve a paginated, filterable list of all promoters belonging to a program. Requires a Bearer Token."
 ---
 
 Use this endpoint to fetch a paginated list of all promoters registered within a specific program. You can filter results by name and control sort order and pagination through query parameters. This is useful for building admin dashboards and promoter management tables.
@@ -9,7 +9,7 @@ Use this endpoint to fetch a paginated list of all promoters registered within a
 ## Method and Path
 
 ```http
-GET /programs/:program_id/promoters
+GET /api/programs/:program_id/promoters
 ```
 
 ## Authentication
@@ -49,7 +49,7 @@ GET /programs/:program_id/promoters
 A successful request returns HTTP `200 OK`.
 
 <ResponseField name="message" type="string">
-  `"Successfully fetched promoters."`
+  `"Successfully fetched all promoters of program."`
 </ResponseField>
 
 <ResponseField name="result" type="object">
@@ -92,7 +92,7 @@ A successful request returns HTTP `200 OK`.
 ## Example
 
 ```bash
-curl -X GET "http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters?name=jane&skip=0&take=5&order=ASC" \
+curl -X GET "https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters?name=jane&skip=0&take=5&order=ASC" \
   -H "Authorization: Bearer $TOKEN"
 ```
 

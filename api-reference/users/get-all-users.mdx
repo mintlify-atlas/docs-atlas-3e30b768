@@ -1,6 +1,6 @@
 ---
 title: "Get All Users — List Users Belonging to a Program"
-sidebarTitle: "GET /users"
+sidebarTitle: "Get All Users"
 description: "Retrieve a paginated list of all admin users associated with a specific Cliq program, with optional filtering by role and status. Requires Bearer token."
 ---
 
@@ -9,7 +9,7 @@ The Get All Users endpoint returns a paginated list of all admin users who are m
 ## Endpoint
 
 ```bash
-GET /programs/:program_id/users
+GET /api/programs/:program_id/users
 ```
 
 ## Authentication
@@ -70,7 +70,7 @@ GET /programs/:program_id/users
 ## Example Request
 
 ```bash
-curl -X GET "https://your-cliq-instance.com/programs/prog-1234-abcd-5678-efgh/users?role=editor&status=active&skip=0&take=20" \
+curl -X GET "https://your-cliq-instance.com/api/programs/prog-1234-abcd-5678-efgh/users?role=editor&status=active&skip=0&take=20" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 

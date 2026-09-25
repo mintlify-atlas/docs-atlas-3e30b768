@@ -9,7 +9,7 @@ The Update Role endpoint allows a program administrator to change the role or st
 ## Endpoint
 
 ```bash
-PATCH /programs/:program_id/users/:user_id
+PATCH /api/programs/:program_id/users/:user_id
 ```
 
 ## Authentication
@@ -51,7 +51,7 @@ PATCH /programs/:program_id/users/:user_id
 ## Example Request
 
 ```bash
-curl -X PATCH https://your-cliq-instance.com/programs/prog-1234-abcd-5678-efgh/users/a1b2c3d4-e5f6-7890-abcd-ef1234567890 \
+curl -X PATCH https://your-cliq-instance.com/api/programs/prog-1234-abcd-5678-efgh/users/a1b2c3d4-e5f6-7890-abcd-ef1234567890 \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
   -H "Content-Type: application/json" \
   -d '{

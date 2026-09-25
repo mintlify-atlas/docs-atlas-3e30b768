@@ -9,7 +9,7 @@ The All Members endpoint returns a paginated list of all members who belong to a
 ## Endpoint
 
 ```bash
-GET /programs/:program_id/promoters/:promoter_id/members
+GET /api/programs/:program_id/promoters/:promoter_id/members
 ```
 
 ## Authentication
@@ -86,7 +86,7 @@ GET /programs/:program_id/promoters/:promoter_id/members
 ## Example Request
 
 ```bash
-curl -X GET "https://your-cliq-instance.com/programs/prog-1234-abcd-5678-efgh/promoters/prom-aaaa-bbbb-cccc-dddd/members?role=editor&status=active&sort_by=name&sort_order=asc&skip=0&take=10" \
+curl -X GET "https://your-cliq-instance.com/api/programs/prog-1234-abcd-5678-efgh/promoters/prom-aaaa-bbbb-cccc-dddd/members?role=editor&status=active&sort_by=name&sort_order=asc&skip=0&take=10" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 

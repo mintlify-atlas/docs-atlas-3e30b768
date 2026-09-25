@@ -1,7 +1,7 @@
 ---
 title: "Get Signups for a Promoter — Cliq API Reference"
 sidebarTitle: "Promoter Signups"
-description: "GET /programs/:program_id/promoters/:promoter_id/signups — Retrieve all signup conversions referred by a specific promoter within a program."
+description: "GET /api/programs/:program_id/promoters/:promoter_id/signups — Retrieve all signup conversions referred by a specific promoter within a program."
 ---
 
 Use this endpoint to fetch all signup conversion events that were referred by a specific promoter within a program. Each record represents a contact who signed up through the promoter's referral link. This data is useful for auditing referral activity and calculating signup-based commissions.
@@ -9,7 +9,7 @@ Use this endpoint to fetch all signup conversion events that were referred by a 
 ## Method and Path
 
 ```http
-GET /programs/:program_id/promoters/:promoter_id/signups
+GET /api/programs/:program_id/promoters/:promoter_id/signups
 ```
 
 ## Authentication
@@ -28,16 +28,6 @@ GET /programs/:program_id/promoters/:promoter_id/signups
 
 <ParamField path="promoter_id" type="string (uuid)" required>
   Unique identifier of the promoter whose signups are being retrieved.
-</ParamField>
-
-### Query Parameters
-
-<ParamField query="skip" type="number">
-  Number of records to skip for pagination. Defaults to `0`.
-</ParamField>
-
-<ParamField query="take" type="number">
-  Maximum number of records to return per page. Defaults to `10`.
 </ParamField>
 
 ## Response
@@ -79,7 +69,7 @@ A successful request returns HTTP `200 OK`.
 ## Example
 
 ```bash
-curl -X GET "http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/signups?skip=0&take=10" \
+curl -X GET "https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/signups" \
   -H "Authorization: Bearer $TOKEN"
 ```
 

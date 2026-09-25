@@ -1,7 +1,7 @@
 ---
-title: "Delete an Affiliate Program — Cliq API Reference"
+title: "Delete an Affiliate Program — Cliq API"
 sidebarTitle: "Delete Program"
-description: "DELETE /programs/:program_id — Permanently delete an affiliate program and all its associated data. Requires Bearer Token with program admin role."
+description: "DELETE /api/programs/:program_id — Permanently delete an affiliate program and all its associated data. Requires Bearer Token with program admin role."
 ---
 
 Permanently deletes an affiliate program. This action cascades to all associated data including promoters, commissions, purchases, and signups. The authenticated user must hold the `admin` role for the program.
@@ -13,7 +13,7 @@ Permanently deletes an affiliate program. This action cascades to all associated
 ## Method and Path
 
 ```http
-DELETE /programs/:program_id
+DELETE /api/programs/:program_id
 ```
 
 ## Authentication
@@ -41,7 +41,7 @@ A successful request returns HTTP `200 OK`.
 ## Example
 
 ```bash
-curl -X DELETE http://localhost:3001/programs/$PROGRAM_ID \
+curl -X DELETE https://your-cliq-instance.com/api/programs/$PROGRAM_ID \
   -H "Authorization: Bearer $TOKEN"
 ```
 

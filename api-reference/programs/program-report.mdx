@@ -1,7 +1,7 @@
 ---
-title: "Download Program Commissions Report — Cliq API Reference"
+title: "Download Program Commissions Report — Cliq API"
 sidebarTitle: "Report"
-description: "GET /programs/:program_id/report — Download a CSV commissions report for a date range. Requires Bearer Token and the x-accept-type: application/json;format=sheet-json header."
+description: "GET /api/programs/:program_id/report — Download a CSV commissions report for a date range. Requires Bearer Token and x-accept-type: application/json;format=sheet-json."
 ---
 
 Download a CSV commissions report for an affiliate program. The file is streamed directly in the response and contains all commission records within the optional date range. This endpoint is designed for data exports and spreadsheet integrations.
@@ -17,7 +17,7 @@ Download a CSV commissions report for an affiliate program. The file is streamed
 ## Method and Path
 
 ```http
-GET /programs/:program_id/report
+GET /api/programs/:program_id/report
 ```
 
 ## Authentication
@@ -34,6 +34,12 @@ GET /programs/:program_id/report
   The unique identifier of the program for which to generate the report.
 </ParamField>
 
+### Required Request Header
+
+<ParamField header="x-accept-type" type="string" required>
+  Must be set to exactly `application/json;format=sheet-json`. Any other value results in a `400 Bad Request` error.
+</ParamField>
+
 ### Query Parameters
 
 <ParamField query="start_date" type="string (ISO 8601 date)">
@@ -42,12 +48,6 @@ GET /programs/:program_id/report
 
 <ParamField query="end_date" type="string (ISO 8601 date)">
   End of the date range (e.g. `2024-06-30`). When omitted, the report includes records up to the current date.
-</ParamField>
-
-### Required Request Header
-
-<ParamField header="x-accept-type" type="string" required>
-  Must be set to exactly `application/json;format=sheet-json`. Any other value results in a `400 Bad Request` error.
 </ParamField>
 
 ## Response
@@ -67,7 +67,7 @@ The response body is a UTF-8 encoded CSV stream. The first row contains column h
 
 ```bash
 # Download report for a specific date range
-curl -X GET "http://localhost:3001/programs/$PROGRAM_ID/report?start_date=2024-01-01&end_date=2024-06-30" \
+curl -X GET "https://your-cliq-instance.com/api/programs/$PROGRAM_ID/report?start_date=2024-01-01&end_date=2024-06-30" \
   -H "Authorization: Bearer $TOKEN" \
   -H "x-accept-type: application/json;format=sheet-json" \
   --output "commissions_report.csv"
@@ -75,7 +75,7 @@ curl -X GET "http://localhost:3001/programs/$PROGRAM_ID/report?start_date=2024-0
 
 ```bash
 # Download full report (no date filter)
-curl -X GET "http://localhost:3001/programs/$PROGRAM_ID/report" \
+curl -X GET "https://your-cliq-instance.com/api/programs/$PROGRAM_ID/report" \
   -H "Authorization: Bearer $TOKEN" \
   -H "x-accept-type: application/json;format=sheet-json" \
   --output "commissions_full.csv"

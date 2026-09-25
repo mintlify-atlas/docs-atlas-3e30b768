@@ -1,7 +1,7 @@
 ---
 title: "List Program Referrals — Cliq API Reference"
 sidebarTitle: "Referrals"
-description: "GET /programs/:program_id/referrals — Retrieve a paginated, sortable list of referral view records for an affiliate program. Requires Bearer Token."
+description: "GET /api/programs/:program_id/referrals — Retrieve a paginated, sortable list of referral view records for an affiliate program. Requires Bearer Token."
 ---
 
 Retrieve the referral view data for a program — a denormalized view that surfaces each referral alongside its attributed promoter, conversion status, and activity timestamps. Results can be searched, sorted, and paginated.
@@ -9,7 +9,7 @@ Retrieve the referral view data for a program — a denormalized view that surfa
 ## Method and Path
 
 ```http
-GET /programs/:program_id/referrals
+GET /api/programs/:program_id/referrals
 ```
 
 ## Authentication
@@ -104,19 +104,19 @@ A successful request returns HTTP `200 OK`.
 
 ```bash
 # All referrals sorted by most recently updated
-curl -X GET "http://localhost:3001/programs/$PROGRAM_ID/referrals?sort_by=updatedAt&sort_order=DESC" \
+curl -X GET "https://your-cliq-instance.com/api/programs/$PROGRAM_ID/referrals?sort_by=updatedAt&sort_order=DESC" \
   -H "Authorization: Bearer $TOKEN"
 ```
 
 ```bash
 # Search referrals by keyword
-curl -X GET "http://localhost:3001/programs/$PROGRAM_ID/referrals?query=alice&skip=0&take=10" \
+curl -X GET "https://your-cliq-instance.com/api/programs/$PROGRAM_ID/referrals?query=alice&skip=0&take=10" \
   -H "Authorization: Bearer $TOKEN"
 ```
 
 ```bash
 # Oldest referrals first
-curl -X GET "http://localhost:3001/programs/$PROGRAM_ID/referrals?sort_by=createdAt&sort_order=ASC&take=25" \
+curl -X GET "https://your-cliq-instance.com/api/programs/$PROGRAM_ID/referrals?sort_by=createdAt&sort_order=ASC&take=25" \
   -H "Authorization: Bearer $TOKEN"
 ```
 

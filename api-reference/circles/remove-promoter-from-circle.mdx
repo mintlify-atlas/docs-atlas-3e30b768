@@ -1,7 +1,7 @@
 ---
 title: "Remove a Promoter from a Circle — Cliq API Reference"
 sidebarTitle: "Remove Promoter"
-description: "DELETE /programs/:program_id/circles/:circle_id/promoters/:promoter_id — Remove a promoter from a circle, returning them to the default segment."
+description: "DELETE /api/programs/:program_id/circles/:circle_id/promoters/:promoter_id — Remove a promoter from a circle, returning them to the default segment."
 ---
 
 Use this endpoint to remove a specific promoter from a circle. After removal, the promoter is no longer associated with that circle's commission rules. If your program relies on circles to gate commission functions, ensure you reassign the promoter to another circle after removing them to prevent them from falling back to default-circle behavior unintentionally.
@@ -9,7 +9,7 @@ Use this endpoint to remove a specific promoter from a circle. After removal, th
 ## Method and Path
 
 ```bash
-DELETE /programs/:program_id/circles/:circle_id/promoters/:promoter_id
+DELETE /api/programs/:program_id/circles/:circle_id/promoters/:promoter_id
 ```
 
 ## Authentication
@@ -45,7 +45,7 @@ A successful request returns HTTP `204 No Content`.
 ## Example
 
 ```bash
-curl -X DELETE http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/circles/c1d2e3f4-0000-0000-0000-000000000002/promoters/p1a2b3c4-0000-0000-0000-000000000010 \
+curl -X DELETE https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/circles/c1d2e3f4-0000-0000-0000-000000000002/promoters/p1a2b3c4-0000-0000-0000-000000000010 \
   -H "Authorization: Bearer $TOKEN"
 ```
 

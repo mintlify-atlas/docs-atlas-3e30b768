@@ -1,10 +1,10 @@
 ---
 title: "Download Promoter CSV Reports — Cliq API Reference"
 sidebarTitle: "Promoter Reports"
-description: "Download CSV reports for a promoter's signups, purchases, commissions, and links. All report endpoints require the x-accept-type header set to sheet-json."
+description: "Download CSV reports for a promoter's signups, purchases, commissions, links, and referrals. Requires the x-accept-type sheet-json header on every request."
 ---
 
-Cliq provides four CSV report endpoints for promoters — one each for signups, purchases, commissions, links, and referrals. Each endpoint streams a `.csv` file directly to the response and requires a specific `x-accept-type` header. Use these endpoints to power data exports, external spreadsheet imports, or automated reporting pipelines.
+Cliq provides five CSV report endpoints for promoters — one each for signups, purchases, commissions, links, and referrals. Each endpoint streams a `.csv` file directly to the response and requires a specific `x-accept-type` header. Use these endpoints to power data exports, external spreadsheet imports, or automated reporting pipelines.
 
 <Warning>
   All report endpoints require the header `x-accept-type: application/json;format=sheet-json`. Requests that omit this header or supply an incorrect value will receive a `400 Bad Request` error.
@@ -14,11 +14,11 @@ Cliq provides four CSV report endpoints for promoters — one each for signups, 
 
 | Report | Method | Path |
 |---|---|---|
-| Signups | `GET` | `/programs/:program_id/promoters/:promoter_id/reports/signups` |
-| Purchases | `GET` | `/programs/:program_id/promoters/:promoter_id/reports/purchases` |
-| Commissions | `GET` | `/programs/:program_id/promoters/:promoter_id/reports/commissions` |
-| Links | `GET` | `/programs/:program_id/promoters/:promoter_id/reports/links` |
-| Referrals | `GET` | `/programs/:program_id/promoters/:promoter_id/reports/referrals` |
+| Signups | `GET` | `/api/programs/:program_id/promoters/:promoter_id/reports/signups` |
+| Purchases | `GET` | `/api/programs/:program_id/promoters/:promoter_id/reports/purchases` |
+| Commissions | `GET` | `/api/programs/:program_id/promoters/:promoter_id/reports/commissions` |
+| Links | `GET` | `/api/programs/:program_id/promoters/:promoter_id/reports/links` |
+| Referrals | `GET` | `/api/programs/:program_id/promoters/:promoter_id/reports/referrals` |
 
 ## Authentication
 
@@ -35,7 +35,7 @@ Downloads a CSV file of all signups attributed to the promoter, optionally filte
 ### Method and Path
 
 ```http
-GET /programs/:program_id/promoters/:promoter_id/reports/signups
+GET /api/programs/:program_id/promoters/:promoter_id/reports/signups
 ```
 
 ### Path Parameters
@@ -61,7 +61,7 @@ GET /programs/:program_id/promoters/:promoter_id/reports/signups
 ### Example
 
 ```bash
-curl -X GET "http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/reports/signups?start_date=2024-01-01&end_date=2024-03-31" \
+curl -X GET "https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/reports/signups?start_date=2024-01-01&end_date=2024-03-31" \
   -H "Authorization: Bearer $TOKEN" \
   -H "member_id: m9z8y7x6-0000-0000-0000-000000000001" \
   -H "x-accept-type: application/json;format=sheet-json" \
@@ -77,7 +77,7 @@ Downloads a CSV file of all purchases attributed to the promoter, optionally fil
 ### Method and Path
 
 ```http
-GET /programs/:program_id/promoters/:promoter_id/reports/purchases
+GET /api/programs/:program_id/promoters/:promoter_id/reports/purchases
 ```
 
 ### Path Parameters
@@ -103,7 +103,7 @@ GET /programs/:program_id/promoters/:promoter_id/reports/purchases
 ### Example
 
 ```bash
-curl -X GET "http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/reports/purchases?start_date=2024-01-01&end_date=2024-03-31" \
+curl -X GET "https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/reports/purchases?start_date=2024-01-01&end_date=2024-03-31" \
   -H "Authorization: Bearer $TOKEN" \
   -H "member_id: m9z8y7x6-0000-0000-0000-000000000001" \
   -H "x-accept-type: application/json;format=sheet-json" \
@@ -119,7 +119,7 @@ Downloads a CSV file of all commission records for the promoter, optionally filt
 ### Method and Path
 
 ```http
-GET /programs/:program_id/promoters/:promoter_id/reports/commissions
+GET /api/programs/:program_id/promoters/:promoter_id/reports/commissions
 ```
 
 ### Path Parameters
@@ -145,7 +145,7 @@ GET /programs/:program_id/promoters/:promoter_id/reports/commissions
 ### Example
 
 ```bash
-curl -X GET "http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/reports/commissions?start_date=2024-01-01&end_date=2024-03-31" \
+curl -X GET "https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/reports/commissions?start_date=2024-01-01&end_date=2024-03-31" \
   -H "Authorization: Bearer $TOKEN" \
   -H "member_id: m9z8y7x6-0000-0000-0000-000000000001" \
   -H "x-accept-type: application/json;format=sheet-json" \
@@ -161,7 +161,7 @@ Downloads a CSV file of link analytics for the promoter's referral links, option
 ### Method and Path
 
 ```http
-GET /programs/:program_id/promoters/:promoter_id/reports/links
+GET /api/programs/:program_id/promoters/:promoter_id/reports/links
 ```
 
 ### Path Parameters
@@ -187,7 +187,7 @@ GET /programs/:program_id/promoters/:promoter_id/reports/links
 ### Example
 
 ```bash
-curl -X GET "http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/reports/links?start_date=2024-01-01&end_date=2024-03-31" \
+curl -X GET "https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/reports/links?start_date=2024-01-01&end_date=2024-03-31" \
   -H "Authorization: Bearer $TOKEN" \
   -H "member_id: m9z8y7x6-0000-0000-0000-000000000001" \
   -H "x-accept-type: application/json;format=sheet-json" \
@@ -203,7 +203,7 @@ Downloads a CSV file of all referral records for the promoter, optionally filter
 ### Method and Path
 
 ```http
-GET /programs/:program_id/promoters/:promoter_id/reports/referrals
+GET /api/programs/:program_id/promoters/:promoter_id/reports/referrals
 ```
 
 ### Path Parameters
@@ -229,7 +229,7 @@ GET /programs/:program_id/promoters/:promoter_id/reports/referrals
 ### Example
 
 ```bash
-curl -X GET "http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/reports/referrals?start_date=2024-01-01&end_date=2024-03-31" \
+curl -X GET "https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/reports/referrals?start_date=2024-01-01&end_date=2024-03-31" \
   -H "Authorization: Bearer $TOKEN" \
   -H "member_id: m9z8y7x6-0000-0000-0000-000000000001" \
   -H "x-accept-type: application/json;format=sheet-json" \

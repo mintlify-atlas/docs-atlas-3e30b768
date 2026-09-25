@@ -9,7 +9,7 @@ The Remove User endpoint removes a user's membership from a specific program wit
 ## Endpoint
 
 ```bash
-DELETE /programs/:program_id/users/:user_id
+DELETE /api/programs/:program_id/users/:user_id
 ```
 
 ## Authentication
@@ -41,7 +41,7 @@ DELETE /programs/:program_id/users/:user_id
 ## Example Request
 
 ```bash
-curl -X DELETE https://your-cliq-instance.com/programs/prog-1234-abcd-5678-efgh/users/a1b2c3d4-e5f6-7890-abcd-ef1234567890 \
+curl -X DELETE https://your-cliq-instance.com/api/programs/prog-1234-abcd-5678-efgh/users/a1b2c3d4-e5f6-7890-abcd-ef1234567890 \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 

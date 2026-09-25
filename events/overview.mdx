@@ -1,7 +1,7 @@
 ---
 title: "Cliq Webhooks: Real-Time Event Delivery via CloudEvents"
 sidebarTitle: "Overview"
-description: "Cliq emits CloudEvents-compliant JSON webhook payloads whenever key referral actions occur. Receive real-time signups, purchases, commissions, and contacts."
+description: "Cliq emits CloudEvents webhook payloads when key referral actions occur. Receive real-time signup, purchase, commission, and contact events in your system."
 ---
 
 Cliq publishes real-time events whenever a key action occurs within a referral program — a contact signs up, completes a purchase, earns a promoter a commission, or is created for the first time. Each event is delivered as a CloudEvents-compliant JSON payload POSTed to every webhook URL you have registered for that event type.
@@ -36,8 +36,8 @@ When an event occurs, Cliq POSTs the JSON payload to every webhook URL registere
 
 Webhooks are registered at two scopes:
 
-- **Program webhooks** — receive events across the entire program, for all promoters. Register via `POST /programs/:program_id/webhooks`. Program webhooks support all four event types, including `contact.created`.
-- **Promoter webhooks** — receive events scoped to a single promoter. Register via `POST /programs/:program_id/promoters/:promoter_id/webhooks`. Promoter webhooks support `signup.created`, `purchase.created`, and `commission.created`.
+- **Program webhooks** — receive events across the entire program, for all promoters. Register via `POST /api/programs/:program_id/webhooks`. Program webhooks support all four event types, including `contact.created`.
+- **Promoter webhooks** — receive events scoped to a single promoter. Register via `POST /api/programs/:program_id/promoters/:promoter_id/webhooks`. Promoter webhooks support `signup.created`, `purchase.created`, and `commission.created`.
 
 Each webhook registration accepts a `url`, a `secret`, and an `events` array listing the event type strings you want to receive.
 
@@ -56,7 +56,7 @@ To validate a delivery on your server:
 3. Compare the result (hex-encoded) to the value in `x-webhook-signature`.
 4. Reject the request if they do not match.
 
-```json
+```text
 // Example — conceptual validation in pseudocode
 expectedSignature = HMAC_SHA256(webhookSecret, rawRequestBody)
 if (request.headers["x-webhook-signature"] !== expectedSignature) {

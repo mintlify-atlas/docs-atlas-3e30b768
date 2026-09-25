@@ -1,22 +1,22 @@
 ---
-title: "Create a Function | Cliq API Reference"
-sidebarTitle: "POST /functions"
-description: "Create a commission function for a program. Functions define rules that fire on signup or purchase events to generate commissions or switch circles."
+title: "Create a Function in Cliq | API Reference"
+sidebarTitle: "Create Function"
+description: "Create a commission function for a program. Define a trigger, effect type, and effect configuration to generate commissions or switch circles on events."
 ---
 
 Functions are the commission engine of Cliq. When you create a function, you define a trigger (either `signup` or `purchase`), an effect type (`generate_commission` or `switch_circle`), and the specific effect configuration that determines what happens when the trigger fires. Optionally you can attach conditions and scope the function to a specific circle.
 
 ## Endpoint
 
-```bash
-POST /programs/:program_id/functions
+```text
+POST /api/programs/:program_id/functions
 ```
 
 ## Authentication
 
 All requests require a Bearer token in the `Authorization` header.
 
-```bash
+```text
 Authorization: Bearer <your_token>
 ```
 
@@ -60,7 +60,7 @@ Authorization: Bearer <your_token>
           Set to `fixed`.
         </ParamField>
         <ParamField body="effect.commission.commission_value" type="number" required>
-          The flat amount of commission to award. Must be greater than `0.01`.
+          The flat amount of commission to award. Must be ≥ `0.01`.
         </ParamField>
       </Expandable>
 
@@ -79,11 +79,22 @@ Authorization: Bearer <your_token>
     <ParamField body="effect.target_circle_id" type="string" required>
       UUID of the circle the promoter should be moved into when the trigger fires.
     </ParamField>
+    <ParamField body="effect.target_circle_name" type="string">
+      Display name of the target circle. Optional.
+    </ParamField>
   </Expandable>
 </ParamField>
 
 <ParamField body="conditions" type="array">
   An optional array of condition objects that must all be satisfied for the function to fire. If omitted, the function fires on every matching trigger event.
+
+  Each condition object has a `condition` field with the following shape:
+
+  | Field | Type | Description |
+  |-------|------|-------------|
+  | `parameter` | string | One of `revenue`, `no. of signups`, `no. of purchases`, `item_id` |
+  | `operator` | string | One of `greater_than_or_equal_to`, `less_than_or_equal_to`, `greater_than`, `less_than`, `equals`, `contains` |
+  | `value` | string or number | The threshold value to compare against |
 </ParamField>
 
 <ParamField body="circle_id" type="string">
@@ -141,7 +152,7 @@ Authorization: Bearer <your_token>
 ### Create a fixed-commission function on purchase
 
 ```bash
-curl -X POST https://your-cliq-instance.com/programs/prog_abc123/functions \
+curl -X POST https://your-cliq-instance.com/api/programs/prog_abc123/functions \
   -H "Authorization: Bearer <your_token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -161,7 +172,7 @@ curl -X POST https://your-cliq-instance.com/programs/prog_abc123/functions \
 ### Create a percentage-commission function on signup
 
 ```bash
-curl -X POST https://your-cliq-instance.com/programs/prog_abc123/functions \
+curl -X POST https://your-cliq-instance.com/api/programs/prog_abc123/functions \
   -H "Authorization: Bearer <your_token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -180,7 +191,7 @@ curl -X POST https://your-cliq-instance.com/programs/prog_abc123/functions \
 ### Create a circle-switch function
 
 ```bash
-curl -X POST https://your-cliq-instance.com/programs/prog_abc123/functions \
+curl -X POST https://your-cliq-instance.com/api/programs/prog_abc123/functions \
   -H "Authorization: Bearer <your_token>" \
   -H "Content-Type: application/json" \
   -d '{

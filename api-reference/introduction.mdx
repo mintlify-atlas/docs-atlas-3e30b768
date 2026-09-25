@@ -1,21 +1,21 @@
 ---
-title: "Cliq REST API Reference"
+title: "Cliq REST API Reference — Getting Started Guide"
 sidebarTitle: "Overview"
-description: "Explore the Cliq REST API — base URLs, Bearer Token and API Key auth, pagination with skip/take, and unified response envelopes."
+description: "Base URLs, Bearer Token and API Key authentication, skip/take pagination, and the unified JSON response envelope for the Cliq REST API."
 ---
 
-The Cliq REST API gives you programmatic access to every resource in your affiliate and referral management platform — programs, promoters, commissions, purchases, and more. All endpoints follow REST conventions and return a consistent JSON envelope of `{ message, result }`.
+The Cliq REST API gives you programmatic access to every resource in your affiliate and referral management platform — programs, promoters, commissions, purchases, and more. All endpoints follow REST conventions, are mounted under the `/api` global prefix, and return a consistent JSON envelope of `{ message, result }`.
 
 ## Base URL
 
-The API server listens on the port configured by the `PORT` environment variable (default `3000`). When running via the provided Docker Compose setup the host port is mapped to `3001`.
+The API server listens on the port configured by the `PORT` environment variable (default `3000`). When running via the provided Docker Compose setup the host port is mapped to `3001`. All paths are prefixed with `/api`.
 
-```
-http://localhost:3000   # direct / bare-metal
-http://localhost:3001   # Docker Compose default
+```text
+http://localhost:3000/api   # direct / bare-metal dev
+http://localhost:3001/api   # Docker Compose default
 ```
 
-All paths shown in this reference are relative to the base URL (e.g. `POST /programs` → `http://localhost:3001/programs`).
+All paths shown in this reference are relative to the base URL (e.g. `POST /api/programs` → `http://localhost:3001/api/programs`).
 
 ## Authentication
 
@@ -33,12 +33,12 @@ Authorization: Bearer <token>
 
 | Endpoint | Use case |
 |---|---|
-| `POST /users/login` | Platform user (admin, editor, viewer) |
-| `POST /programs/:program_id/members/login` | Affiliate / promoter member |
+| `POST /api/users/login` | Platform user (admin, editor, viewer) |
+| `POST /api/programs/:program_id/members/login` | Affiliate / promoter member |
 
 ### API Key
 
-For server-to-server integrations use a long-lived API key pair. Both headers must be present.
+For server-to-server integrations use a long-lived API key pair. Both headers must be present on every request.
 
 ```http
 x-api-key: <your-api-key>
@@ -47,7 +47,7 @@ x-api-secret: <your-api-secret>
 
 **How to obtain API keys**
 
-Generate a key pair by calling `POST /programs/:program_id/api-keys`. Store both values securely — the secret is shown only once.
+Generate a key pair by calling `POST /api/programs/:program_id/api-keys`. Store both values securely — the secret is shown only once.
 
 ## Response Envelope
 
@@ -78,12 +78,12 @@ List endpoints accept two query parameters:
     Create and manage affiliate programs, retrieve analytics, and export reports.
   </Card>
   <Card title="Create Program" icon="plus" href="/api-reference/programs/create-program">
-    `POST /programs` — Launch a new affiliate program.
+    `POST /api/programs` — Launch a new affiliate program.
   </Card>
   <Card title="Program Analytics" icon="chart-line" href="/api-reference/programs/program-analytics">
-    `GET /programs/:id/analytics` — Performance metrics over any period.
+    `GET /api/programs/:id/analytics` — Performance metrics over any period.
   </Card>
   <Card title="Program Report" icon="file-csv" href="/api-reference/programs/program-report">
-    `GET /programs/:id/report` — Download a CSV commissions report.
+    `GET /api/programs/:id/report` — Download a CSV commissions report.
   </Card>
 </CardGroup>

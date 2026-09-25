@@ -1,7 +1,7 @@
 ---
 title: "Get a Single Affiliate Program — Cliq API Reference"
 sidebarTitle: "Get Program"
-description: "GET /programs/:program_id — Fetch full details for a single program by its UUID. This is a public endpoint and requires no authentication."
+description: "GET /api/programs/:program_id — Fetch full details for a single program by its UUID. This is a public endpoint and requires no authentication."
 ---
 
 Retrieve the full details of a single affiliate program by its unique identifier. This endpoint is public — no authentication is required — making it suitable for building public program landing pages.
@@ -9,7 +9,7 @@ Retrieve the full details of a single affiliate program by its unique identifier
 ## Method and Path
 
 ```http
-GET /programs/:program_id
+GET /api/programs/:program_id
 ```
 
 ## Authentication
@@ -79,7 +79,7 @@ A successful request returns HTTP `200 OK`.
 ## Example
 
 ```bash
-curl -X GET http://localhost:3001/programs/$PROGRAM_ID
+curl -X GET https://your-cliq-instance.com/api/programs/$PROGRAM_ID
 ```
 
 ## Status Codes

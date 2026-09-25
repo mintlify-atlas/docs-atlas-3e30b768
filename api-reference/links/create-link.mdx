@@ -1,15 +1,15 @@
 ---
 title: "Create a Referral Link for a Promoter — Cliq API"
-sidebarTitle: "POST /links"
-description: "POST /programs/:program_id/promoters/:promoter_id/links — Create a new referral link with a unique ref_val used to attribute signups and purchases."
+sidebarTitle: "Create Link"
+description: "POST /api/programs/:program_id/promoters/:promoter_id/links — Create a new referral link with a unique ref_val used to attribute signups and purchases."
 ---
 
-Use this endpoint to create a new referral link for a promoter within a program. Each link has a unique `ref_val` — the referral code that is passed to `POST /signups` and `POST /purchases` to attribute conversions back to the correct promoter. A promoter can hold multiple active links, enabling campaign-level tracking.
+Use this endpoint to create a new referral link for a promoter within a program. Each link has a unique `ref_val` — the referral code that is passed to `POST /api/signups` and `POST /api/purchases` to attribute conversions back to the correct promoter. A promoter can hold multiple active links, enabling campaign-level tracking.
 
 ## Method and Path
 
 ```bash
-POST /programs/:program_id/promoters/:promoter_id/links
+POST /api/programs/:program_id/promoters/:promoter_id/links
 ```
 
 ## Authentication
@@ -37,7 +37,7 @@ POST /programs/:program_id/promoters/:promoter_id/links
 </ParamField>
 
 <ParamField body="ref_val" type="string" required>
-  The referral code embedded in this link. This value is passed as the `ref_val` parameter in conversion events (`POST /signups`, `POST /purchases`) to attribute the conversion to this promoter. Must be unique within the program.
+  The referral code embedded in this link. This value is passed as the `ref_val` parameter in conversion events (`POST /api/signups`, `POST /api/purchases`) to attribute the conversion to this promoter. Must be unique within the program.
 </ParamField>
 
 <ParamField body="status" type="string">
@@ -78,7 +78,7 @@ A successful request returns HTTP `201 Created`.
 ## Example
 
 ```bash
-curl -X POST http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p1a2b3c4-0000-0000-0000-000000000010/links \
+curl -X POST https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p1a2b3c4-0000-0000-0000-000000000010/links \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{

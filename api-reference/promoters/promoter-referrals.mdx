@@ -1,7 +1,7 @@
 ---
 title: "Get Referrals for a Promoter — Cliq API Reference"
 sidebarTitle: "Promoter Referrals"
-description: "GET /programs/:program_id/promoters/:promoter_id/referrals — List all contacts referred by a promoter, or fetch a single referral by contact ID."
+description: "GET /api/programs/:program_id/promoters/:promoter_id/referrals — List all contacts referred by a promoter, or fetch a single referral by contact ID."
 ---
 
 These endpoints let you retrieve referral data for a specific promoter within a program. Use the list endpoint to page through all contacts referred by the promoter, or use the single-referral endpoint to look up the referral status of one particular contact. Both endpoints share the same base path and differ only by whether a `contact_id` is appended.
@@ -11,13 +11,13 @@ These endpoints let you retrieve referral data for a specific promoter within a 
 ### List All Referrals
 
 ```http
-GET /programs/:program_id/promoters/:promoter_id/referrals
+GET /api/programs/:program_id/promoters/:promoter_id/referrals
 ```
 
 ### Get a Single Referral
 
 ```http
-GET /programs/:program_id/promoters/:promoter_id/referrals/:contact_id
+GET /api/programs/:program_id/promoters/:promoter_id/referrals/:contact_id
 ```
 
 ## Authentication
@@ -125,7 +125,7 @@ Both endpoints return HTTP `200 OK` on success.
 ### List All Referrals
 
 ```bash
-curl -X GET "http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/referrals?sort_by=updatedAt&sort_order=DESC&skip=0&take=10" \
+curl -X GET "https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/referrals?sort_by=updatedAt&sort_order=DESC&skip=0&take=10" \
   -H "Authorization: Bearer $TOKEN" \
   -H "member_id: m9z8y7x6-0000-0000-0000-000000000001"
 ```
@@ -133,7 +133,7 @@ curl -X GET "http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001
 ### Get a Single Referral
 
 ```bash
-curl -X GET "http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/referrals/c1d2e3f4-0000-0000-0000-000000000003" \
+curl -X GET "https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002/referrals/c1d2e3f4-0000-0000-0000-000000000003" \
   -H "Authorization: Bearer $TOKEN" \
   -H "member_id: m9z8y7x6-0000-0000-0000-000000000001"
 ```

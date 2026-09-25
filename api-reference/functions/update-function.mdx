@@ -1,22 +1,22 @@
 ---
-title: "Update a Function | Cliq API Reference"
-sidebarTitle: "PATCH /functions/:id"
-description: "Update an existing commission function's name, trigger, effect, status, conditions, or circle assignment. All fields are optional."
+title: "Update an Existing Function | Cliq API Reference"
+sidebarTitle: "Update Function"
+description: "Update an existing commission function's name, trigger, effect, status, conditions, or circle assignment. All request body fields are optional."
 ---
 
 Update any combination of fields on an existing function. All fields in the request body are optional — only the fields you include will be changed. This is useful for toggling a function's status between `active` and `inactive`, adjusting commission values, or reassigning a function to a different circle.
 
 ## Endpoint
 
-```bash
-PATCH /programs/:program_id/functions/:function_id
+```text
+PATCH /api/programs/:program_id/functions/:function_id
 ```
 
 ## Authentication
 
 All requests require a Bearer token in the `Authorization` header.
 
-```bash
+```text
 Authorization: Bearer <your_token>
 ```
 
@@ -66,6 +66,9 @@ All fields are optional. Only supplied fields are updated.
     <ParamField body="effect.target_circle_id" type="string">
       UUID of the new target circle.
     </ParamField>
+    <ParamField body="effect.target_circle_name" type="string">
+      Display name of the new target circle. Optional.
+    </ParamField>
   </Expandable>
 </ParamField>
 
@@ -88,7 +91,7 @@ All fields are optional. Only supplied fields are updated.
 ### Deactivate a function
 
 ```bash
-curl -X PATCH https://your-cliq-instance.com/programs/prog_abc123/functions/fn_uuid_here \
+curl -X PATCH https://your-cliq-instance.com/api/programs/prog_abc123/functions/fn_uuid_here \
   -H "Authorization: Bearer <your_token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -99,7 +102,7 @@ curl -X PATCH https://your-cliq-instance.com/programs/prog_abc123/functions/fn_u
 ### Update commission value
 
 ```bash
-curl -X PATCH https://your-cliq-instance.com/programs/prog_abc123/functions/fn_uuid_here \
+curl -X PATCH https://your-cliq-instance.com/api/programs/prog_abc123/functions/fn_uuid_here \
   -H "Authorization: Bearer <your_token>" \
   -H "Content-Type: application/json" \
   -d '{

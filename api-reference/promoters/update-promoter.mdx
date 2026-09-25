@@ -1,7 +1,7 @@
 ---
 title: "Update a Promoter's Information — Cliq API Reference"
-sidebarTitle: "PATCH /promoters/:id"
-description: "PATCH /programs/:program_id/promoters/:promoter_id — Partially update a promoter's name or logo URL within a program. Requires a Bearer Token."
+sidebarTitle: "Update Promoter"
+description: "PATCH /api/programs/:program_id/promoters/:promoter_id — Partially update a promoter's name or logo URL within a program. Requires a Bearer Token."
 ---
 
 Use this endpoint to update one or more fields on an existing promoter within a program. All body fields are optional — only the fields you include will be updated, leaving the rest unchanged. This follows standard HTTP `PATCH` semantics.
@@ -9,7 +9,7 @@ Use this endpoint to update one or more fields on an existing promoter within a 
 ## Method and Path
 
 ```http
-PATCH /programs/:program_id/promoters/:promoter_id
+PATCH /api/programs/:program_id/promoters/:promoter_id
 ```
 
 ## Authentication
@@ -74,7 +74,7 @@ A successful request returns HTTP `200 OK`.
 ## Example
 
 ```bash
-curl -X PATCH http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002 \
+curl -X PATCH https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002 \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{

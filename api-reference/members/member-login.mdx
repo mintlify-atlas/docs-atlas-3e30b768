@@ -1,6 +1,6 @@
 ---
 title: "Member Login — Authenticate a Promoter Portal Member"
-sidebarTitle: "POST /login"
+sidebarTitle: "Member Login"
 description: "Authenticate a member of a Cliq affiliate program using email and password. Returns a Bearer access token scoped to the program. No prior auth required."
 ---
 
@@ -9,7 +9,7 @@ The Member Login endpoint authenticates an existing member within a specific pro
 ## Endpoint
 
 ```bash
-POST /programs/:program_id/members/login
+POST /api/programs/:program_id/members/login
 ```
 
 ## Authentication
@@ -62,7 +62,7 @@ POST /programs/:program_id/members/login
 ## Example Request
 
 ```bash
-curl -X POST https://your-cliq-instance.com/programs/prog-1234-abcd-5678-efgh/members/login \
+curl -X POST https://your-cliq-instance.com/api/programs/prog-1234-abcd-5678-efgh/members/login \
   -H "Content-Type: application/json" \
   -d '{
     "email": "alice.johnson@example.com",

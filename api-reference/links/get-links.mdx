@@ -1,7 +1,7 @@
 ---
 title: "List All Referral Links for a Promoter — Cliq API"
-sidebarTitle: "GET /links"
-description: "GET /programs/:program_id/promoters/:promoter_id/links — Retrieve a paginated list of all referral links belonging to a promoter in a program."
+sidebarTitle: "Get Links"
+description: "GET /api/programs/:program_id/promoters/:promoter_id/links — Retrieve a paginated list of all referral links belonging to a promoter in a program."
 ---
 
 Use this endpoint to retrieve all referral links that belong to a specific promoter within a program. The response is paginated and can be filtered by link name. Use this to inspect which referral codes a promoter has active, track link-level performance, or audit link statuses before processing conversions.
@@ -9,7 +9,7 @@ Use this endpoint to retrieve all referral links that belong to a specific promo
 ## Method and Path
 
 ```bash
-GET /programs/:program_id/promoters/:promoter_id/links
+GET /api/programs/:program_id/promoters/:promoter_id/links
 ```
 
 ## Authentication
@@ -86,7 +86,7 @@ A successful request returns HTTP `200 OK`.
 ## Example
 
 ```bash
-curl -X GET "http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p1a2b3c4-0000-0000-0000-000000000010/links?skip=0&take=10" \
+curl -X GET "https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p1a2b3c4-0000-0000-0000-000000000010/links?skip=0&take=10" \
   -H "Authorization: Bearer $TOKEN"
 ```
 

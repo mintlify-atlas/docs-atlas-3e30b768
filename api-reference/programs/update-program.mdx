@@ -1,7 +1,7 @@
 ---
 title: "Update an Affiliate Program — Cliq API Reference"
 sidebarTitle: "Update Program"
-description: "PATCH /programs/:program_id — Update one or more fields of an existing affiliate program. Requires Bearer Token with program admin role."
+description: "PATCH /api/programs/:program_id — Update one or more fields of an existing affiliate program. Requires Bearer Token with program admin role."
 ---
 
 Partially update an existing affiliate program. All body fields are optional — only the fields you include will be modified. The authenticated user must hold the `admin` role within the program.
@@ -9,7 +9,7 @@ Partially update an existing affiliate program. All body fields are optional —
 ## Method and Path
 
 ```http
-PATCH /programs/:program_id
+PATCH /api/programs/:program_id
 ```
 
 ## Authentication
@@ -72,7 +72,7 @@ All body fields are optional. Include only the fields you wish to change.
 
 ## Response
 
-A successful request returns HTTP `200 OK`. The response does not include the updated program object — use `GET /programs/:program_id` to retrieve the latest state.
+A successful request returns HTTP `200 OK`. The response does not include the updated program object — use `GET /api/programs/:program_id` to retrieve the latest state.
 
 <ResponseField name="message" type="string">
   `"Successfully updated program."`
@@ -82,7 +82,7 @@ A successful request returns HTTP `200 OK`. The response does not include the up
 
 ```bash
 # Update the program name and theme color
-curl -X PATCH http://localhost:3001/programs/$PROGRAM_ID \
+curl -X PATCH https://your-cliq-instance.com/api/programs/$PROGRAM_ID \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{

@@ -1,7 +1,7 @@
 ---
 title: "Get a Single Promoter by ID — Cliq API Reference"
-sidebarTitle: "GET /promoters/:id"
-description: "GET /programs/:program_id/promoters/:promoter_id — Fetch full details of a specific promoter within a program. Requires a Bearer Token."
+sidebarTitle: "Get Promoter"
+description: "GET /api/programs/:program_id/promoters/:promoter_id — Fetch full details of a specific promoter within a program. Requires a Bearer Token."
 ---
 
 Use this endpoint to retrieve the complete details of a single promoter identified by their UUID within a given program. This is typically called when loading a promoter's profile page or verifying promoter attributes before performing an action.
@@ -9,7 +9,7 @@ Use this endpoint to retrieve the complete details of a single promoter identifi
 ## Method and Path
 
 ```http
-GET /programs/:program_id/promoters/:promoter_id
+GET /api/programs/:program_id/promoters/:promoter_id
 ```
 
 ## Authentication
@@ -70,7 +70,7 @@ A successful request returns HTTP `200 OK`.
 ## Example
 
 ```bash
-curl -X GET http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002 \
+curl -X GET https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p5e6f7g8-0000-0000-0000-000000000002 \
   -H "Authorization: Bearer $TOKEN"
 ```
 

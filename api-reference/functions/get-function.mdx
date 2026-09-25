@@ -1,22 +1,22 @@
 ---
-title: "Get a Function by ID | Cliq API Reference"
-sidebarTitle: "GET /functions/:id"
-description: "Fetch a single commission function by its ID within a program. Returns full function details including effect configuration and conditions."
+title: "Get a Single Program Function | Cliq API Reference"
+sidebarTitle: "Get Function"
+description: "Fetch a single commission function by its ID within a program. Returns full function details including effect configuration and attached conditions."
 ---
 
 Retrieve the full details of a specific function, including its trigger, effect type, effect configuration, any attached conditions, and the circle it is scoped to. Use this when you need to inspect or display a particular commission rule.
 
 ## Endpoint
 
-```bash
-GET /programs/:program_id/functions/:function_id
+```text
+GET /api/programs/:program_id/functions/:function_id
 ```
 
 ## Authentication
 
 All requests require a Bearer token in the `Authorization` header.
 
-```bash
+```text
 Authorization: Bearer <your_token>
 ```
 
@@ -72,7 +72,7 @@ Authorization: Bearer <your_token>
           UUID of the target circle.
         </ResponseField>
         <ResponseField name="effect.target_circle_name" type="string">
-          Display name of the target circle.
+          Display name of the target circle, if set.
         </ResponseField>
       </Expandable>
     </ResponseField>
@@ -97,7 +97,7 @@ Authorization: Bearer <your_token>
 ## Example
 
 ```bash
-curl -X GET https://your-cliq-instance.com/programs/prog_abc123/functions/fn_uuid_here \
+curl -X GET https://your-cliq-instance.com/api/programs/prog_abc123/functions/fn_uuid_here \
   -H "Authorization: Bearer <your_token>"
 ```
 

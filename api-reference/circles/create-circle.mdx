@@ -1,7 +1,7 @@
 ---
 title: "Create a Circle in a Program — Cliq API Reference"
-sidebarTitle: "POST /circles"
-description: "POST /programs/:program_id/circles — Create a new promoter segment (circle) inside a program to apply targeted commission rules."
+sidebarTitle: "Create Circle"
+description: "POST /api/programs/:program_id/circles — Create a new promoter segment (circle) inside a program to apply targeted commission rules."
 ---
 
 Use this endpoint to create a new circle within an existing program. Circles are named segments that group promoters together, allowing you to apply different commission functions to each segment. When a promoter joins a program they are placed in the default circle; you can then move them into custom circles to control which commission rules apply to them.
@@ -9,7 +9,7 @@ Use this endpoint to create a new circle within an existing program. Circles are
 ## Method and Path
 
 ```bash
-POST /programs/:program_id/circles
+POST /api/programs/:program_id/circles
 ```
 
 ## Authentication
@@ -32,6 +32,10 @@ POST /programs/:program_id/circles
   Display name for the new circle (e.g. `"VIP Partners"` or `"Tier 1"`).
 </ParamField>
 
+<ParamField body="is_default_circle" type="boolean">
+  When `true`, designates this circle as the default circle for the program. Promoters are automatically placed in the default circle when they join. Defaults to `false` if omitted.
+</ParamField>
+
 ## Response
 
 A successful request returns HTTP `201 Created`.
@@ -48,8 +52,8 @@ A successful request returns HTTP `201 Created`.
     <ResponseField name="name" type="string">
       Display name of the circle.
     </ResponseField>
-    <ResponseField name="program_id" type="string (uuid)">
-      UUID of the program this circle belongs to.
+    <ResponseField name="is_default_circle" type="boolean">
+      Whether this circle is the default circle for the program.
     </ResponseField>
     <ResponseField name="created_at" type="string (ISO 8601)">
       Timestamp when the circle was created.
@@ -63,11 +67,12 @@ A successful request returns HTTP `201 Created`.
 ## Example
 
 ```bash
-curl -X POST http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/circles \
+curl -X POST https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/circles \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "VIP Partners"
+    "name": "VIP Partners",
+    "is_default_circle": false
   }'
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: "Update a Program Webhook | Cliq API Reference"
-sidebarTitle: "PATCH /webhooks/:id"
+sidebarTitle: "Update Webhook"
 description: "Update the URL, secret, or subscribed events for an existing program webhook. All fields are optional — only supplied fields are changed."
 ---
 
@@ -9,7 +9,7 @@ Partially update an existing program webhook. All request body fields are option
 ## Endpoint
 
 ```bash
-PATCH /programs/:program_id/webhooks/:webhook_id
+PATCH /api/programs/:program_id/webhooks/:webhook_id
 ```
 
 ## Authentication
@@ -64,7 +64,7 @@ All fields are optional. At least one field should be provided.
 ### Rotate the webhook secret
 
 ```bash
-curl -X PATCH https://your-cliq-instance.com/programs/prog_abc123/webhooks/wh_uuid_here \
+curl -X PATCH https://your-cliq-instance.com/api/programs/prog_abc123/webhooks/wh_uuid_here \
   -H "Authorization: Bearer <your_token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -75,7 +75,7 @@ curl -X PATCH https://your-cliq-instance.com/programs/prog_abc123/webhooks/wh_uu
 ### Update subscribed events
 
 ```bash
-curl -X PATCH https://your-cliq-instance.com/programs/prog_abc123/webhooks/wh_uuid_here \
+curl -X PATCH https://your-cliq-instance.com/api/programs/prog_abc123/webhooks/wh_uuid_here \
   -H "Authorization: Bearer <your_token>" \
   -H "Content-Type: application/json" \
   -d '{

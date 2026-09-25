@@ -1,7 +1,7 @@
 ---
 title: "Get a Referral Link by ID — Cliq API Reference"
-sidebarTitle: "GET /links/:id"
-description: "GET /programs/:program_id/promoters/:promoter_id/links/:link_id — Fetch a single referral link by its unique ID for a given promoter and program."
+sidebarTitle: "Get Link"
+description: "GET /api/programs/:program_id/promoters/:promoter_id/links/:link_id — Fetch a single referral link by its unique ID for a given promoter and program."
 ---
 
 Use this endpoint to retrieve the details of a specific referral link belonging to a promoter within a program. This is useful for verifying the `ref_val` referral code, checking the link's current status, and confirming its metadata before referencing it in conversion events or downstream workflows.
@@ -9,7 +9,7 @@ Use this endpoint to retrieve the details of a specific referral link belonging 
 ## Method and Path
 
 ```bash
-GET /programs/:program_id/promoters/:promoter_id/links/:link_id
+GET /api/programs/:program_id/promoters/:promoter_id/links/:link_id
 ```
 
 ## Authentication
@@ -51,7 +51,7 @@ A successful request returns HTTP `200 OK`.
       Display name of the link.
     </ResponseField>
     <ResponseField name="ref_val" type="string">
-      The referral code used to attribute conversions to this link. Pass this value to `POST /signups` or `POST /purchases` to record a conversion.
+      The referral code used to attribute conversions to this link. Pass this value to `POST /api/signups` or `POST /api/purchases` to record a conversion.
     </ResponseField>
     <ResponseField name="status" type="string">
       Current status of the link. One of `active` | `archived`.
@@ -68,7 +68,7 @@ A successful request returns HTTP `200 OK`.
 ## Example
 
 ```bash
-curl -X GET http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p1a2b3c4-0000-0000-0000-000000000010/links/l1f2e3d4-0000-0000-0000-000000000020 \
+curl -X GET https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/promoters/p1a2b3c4-0000-0000-0000-000000000010/links/l1f2e3d4-0000-0000-0000-000000000020 \
   -H "Authorization: Bearer $TOKEN"
 ```
 

@@ -9,7 +9,7 @@ The Invite Member endpoint invites a new member and adds them to a specific prom
 ## Endpoint
 
 ```bash
-POST /programs/:program_id/promoters/:promoter_id/members
+POST /api/programs/:program_id/promoters/:promoter_id/members
 ```
 
 ## Authentication
@@ -34,16 +34,16 @@ POST /programs/:program_id/promoters/:promoter_id/members
   The email address of the member to invite.
 </ParamField>
 
+<ParamField body="password" type="string">
+  Initial password for the new member account, if one needs to be created.
+</ParamField>
+
 <ParamField body="first_name" type="string" required>
   The first name of the invited member.
 </ParamField>
 
 <ParamField body="last_name" type="string" required>
   The last name of the invited member.
-</ParamField>
-
-<ParamField body="password" type="string">
-  Initial password for the new member account, if one needs to be created.
 </ParamField>
 
 <ParamField body="role" type="string">
@@ -81,7 +81,7 @@ POST /programs/:program_id/promoters/:promoter_id/members
 ## Example Request
 
 ```bash
-curl -X POST https://your-cliq-instance.com/programs/prog-1234-abcd-5678-efgh/promoters/prom-aaaa-bbbb-cccc-dddd/members \
+curl -X POST https://your-cliq-instance.com/api/programs/prog-1234-abcd-5678-efgh/promoters/prom-aaaa-bbbb-cccc-dddd/members \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
   -H "Content-Type: application/json" \
   -d '{

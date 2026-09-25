@@ -1,6 +1,6 @@
 ---
 title: "User Login — Authenticate a Cliq Admin User"
-sidebarTitle: "POST /login"
+sidebarTitle: "User Login"
 description: "Authenticate an existing Cliq admin user with email and password to receive a Bearer access token for subsequent API calls."
 ---
 
@@ -9,7 +9,7 @@ The User Login endpoint authenticates an existing admin user using their email a
 ## Endpoint
 
 ```bash
-POST /users/login
+POST /api/users/login
 ```
 
 ## Authentication
@@ -56,7 +56,7 @@ POST /users/login
 ## Example Request
 
 ```bash
-curl -X POST https://your-cliq-instance.com/users/login \
+curl -X POST https://your-cliq-instance.com/api/users/login \
   -H "Content-Type: application/json" \
   -d '{
     "email": "jane.doe@example.com",

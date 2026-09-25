@@ -1,7 +1,7 @@
 ---
 title: "List Program Signups — Cliq API Reference"
 sidebarTitle: "Signups"
-description: "GET /programs/:program_id/signups — Retrieve a paginated list of referral signups attributed to an affiliate program. Requires Bearer Token authentication."
+description: "GET /api/programs/:program_id/signups — Retrieve a paginated list of referral signups attributed to an affiliate program. Requires Bearer Token authentication."
 ---
 
 Retrieve all referral signups that have been attributed to the specified affiliate program. Results are paginated. This endpoint is useful for auditing new user acquisitions driven by your promoters.
@@ -9,7 +9,7 @@ Retrieve all referral signups that have been attributed to the specified affilia
 ## Method and Path
 
 ```http
-GET /programs/:program_id/signups
+GET /api/programs/:program_id/signups
 ```
 
 ## Authentication
@@ -72,16 +72,16 @@ A successful request returns HTTP `200 OK`.
   </Expandable>
 </ResponseField>
 
-## Example
+## Examples
 
 ```bash
-curl -X GET "http://localhost:3001/programs/$PROGRAM_ID/signups?skip=0&take=10" \
+curl -X GET "https://your-cliq-instance.com/api/programs/$PROGRAM_ID/signups?skip=0&take=10" \
   -H "Authorization: Bearer $TOKEN"
 ```
 
 ```bash
 # Fetch the second page (records 11–20)
-curl -X GET "http://localhost:3001/programs/$PROGRAM_ID/signups?skip=10&take=10" \
+curl -X GET "https://your-cliq-instance.com/api/programs/$PROGRAM_ID/signups?skip=10&take=10" \
   -H "Authorization: Bearer $TOKEN"
 ```
 

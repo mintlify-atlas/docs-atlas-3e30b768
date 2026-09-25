@@ -1,6 +1,6 @@
 ---
-title: "List All Functions | Cliq API Reference"
-sidebarTitle: "GET /functions"
+title: "List All Program Functions | Cliq API Reference"
+sidebarTitle: "List Functions"
 description: "Retrieve a paginated list of commission functions for a program. Filter by circle, trigger type, or effect type to narrow results."
 ---
 
@@ -8,15 +8,15 @@ Use this endpoint to browse all functions configured for a program. Results can 
 
 ## Endpoint
 
-```bash
-GET /programs/:program_id/functions
+```text
+GET /api/programs/:program_id/functions
 ```
 
 ## Authentication
 
 All requests require a Bearer token in the `Authorization` header.
 
-```bash
+```text
 Authorization: Bearer <your_token>
 ```
 
@@ -97,7 +97,7 @@ Authorization: Bearer <your_token>
 ## Example
 
 ```bash
-curl -X GET "https://your-cliq-instance.com/programs/prog_abc123/functions?trigger=purchase&skip=0&take=20" \
+curl -X GET "https://your-cliq-instance.com/api/programs/prog_abc123/functions?trigger=purchase&skip=0&take=20" \
   -H "Authorization: Bearer <your_token>"
 ```
 

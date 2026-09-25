@@ -1,15 +1,15 @@
 ---
 title: "Update a Circle by ID — Cliq API Reference"
-sidebarTitle: "PATCH /circles/:id"
-description: "PATCH /programs/:program_id/circles/:circle_id — Update the name or properties of an existing promoter segment (circle) within a program."
+sidebarTitle: "Update Circle"
+description: "PATCH /api/programs/:program_id/circles/:circle_id — Update the name or properties of an existing promoter segment (circle) within a program."
 ---
 
-Use this endpoint to update properties of an existing circle within a program. Currently, the `name` field can be updated. All fields in the request body are optional — only the fields you include will be changed, leaving any omitted fields unchanged.
+Use this endpoint to update properties of an existing circle within a program. The `name` and `is_default_circle` fields can be updated. All fields in the request body are optional — only the fields you include will be changed, leaving any omitted fields unchanged.
 
 ## Method and Path
 
 ```bash
-PATCH /programs/:program_id/circles/:circle_id
+PATCH /api/programs/:program_id/circles/:circle_id
 ```
 
 ## Authentication
@@ -36,6 +36,10 @@ PATCH /programs/:program_id/circles/:circle_id
   New display name for the circle. If omitted, the existing name is preserved.
 </ParamField>
 
+<ParamField body="is_default_circle" type="boolean">
+  When `true`, designates this circle as the default circle for the program. If omitted, the existing value is preserved.
+</ParamField>
+
 ## Response
 
 A successful request returns HTTP `200 OK`.
@@ -45,13 +49,13 @@ A successful request returns HTTP `200 OK`.
 </ResponseField>
 
 <Tip>
-  This endpoint returns a confirmation message only. Fetch the circle with `GET /programs/:program_id/circles/:circle_id` to see the updated fields.
+  This endpoint returns a confirmation message only. Fetch the circle with `GET /api/programs/:program_id/circles/:circle_id` to see the updated fields.
 </Tip>
 
 ## Example
 
 ```bash
-curl -X PATCH http://localhost:3001/programs/a1b2c3d4-0000-0000-0000-000000000001/circles/c1d2e3f4-0000-0000-0000-000000000002 \
+curl -X PATCH https://your-cliq-instance.com/api/programs/a1b2c3d4-0000-0000-0000-000000000001/circles/c1d2e3f4-0000-0000-0000-000000000002 \
   -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
   -d '{

@@ -13,7 +13,7 @@ Revokes and permanently deletes a program API key. Once deleted, any calls to th
 ## Endpoint
 
 ```bash
-DELETE /programs/:program_id/api-keys/:api_key_id
+DELETE /api/programs/:program_id/api-keys/:api_key_id
 ```
 
 ## Authentication
@@ -43,7 +43,7 @@ Authorization: Bearer <your_token>
 ## Example
 
 ```bash
-curl -X DELETE https://your-cliq-instance.com/programs/prog_abc123/api-keys/key_record_uuid \
+curl -X DELETE https://your-cliq-instance.com/api/programs/prog_abc123/api-keys/key_record_uuid \
   -H "Authorization: Bearer <your_token>"
 ```
 

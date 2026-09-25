@@ -1,7 +1,7 @@
 ---
 title: "List Affiliate Programs — Cliq API Reference"
 sidebarTitle: "Get Programs"
-description: "GET /programs — Retrieve a paginated list of affiliate programs the authenticated user belongs to, with optional name and visibility filters."
+description: "GET /api/programs — Retrieve a paginated list of affiliate programs the authenticated user belongs to, with optional name and visibility filters."
 ---
 
 Fetch all affiliate programs that the authenticated user is a member of. Results can be filtered by name or visibility and are paginated using `skip` and `take`.
@@ -9,7 +9,7 @@ Fetch all affiliate programs that the authenticated user is a member of. Results
 ## Method and Path
 
 ```http
-GET /programs
+GET /api/programs
 ```
 
 ## Authentication
@@ -51,7 +51,7 @@ A successful request returns HTTP `200 OK`.
 <ResponseField name="result" type="object">
   <Expandable title="result">
     <ResponseField name="items" type="array">
-      Array of program objects. Each item contains the same fields as the single-program response from `GET /programs/:program_id`.
+      Array of program objects. Each item contains the same fields as the single-program response from `GET /api/programs/:program_id`.
     </ResponseField>
     <ResponseField name="count" type="number">
       Total number of programs that match the applied filters (before pagination).
@@ -59,17 +59,17 @@ A successful request returns HTTP `200 OK`.
   </Expandable>
 </ResponseField>
 
-## Example
+## Examples
 
 ```bash
 # Fetch the first 10 public programs
-curl -X GET "http://localhost:3001/programs?visibility=public&skip=0&take=10" \
+curl -X GET "https://your-cliq-instance.com/api/programs?visibility=public&skip=0&take=10" \
   -H "Authorization: Bearer $TOKEN"
 ```
 
 ```bash
 # Search programs by name
-curl -X GET "http://localhost:3001/programs?name=acme&take=5" \
+curl -X GET "https://your-cliq-instance.com/api/programs?name=acme&take=5" \
   -H "Authorization: Bearer $TOKEN"
 ```
 

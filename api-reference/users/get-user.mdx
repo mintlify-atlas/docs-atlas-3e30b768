@@ -1,7 +1,7 @@
 ---
 title: "Get User — Retrieve a Cliq Admin User by ID"
-sidebarTitle: "GET /users/:id"
-description: "Retrieve the profile and metadata of a specific Cliq admin user by their unique user ID. Requires a valid Bearer token."
+sidebarTitle: "Get User"
+description: "Retrieve the profile and metadata of a specific Cliq admin user by their unique user ID. Requires a valid Bearer token with read permission."
 ---
 
 The Get User endpoint fetches the full profile of a specific admin user identified by their `user_id`. This is useful for displaying user profiles in dashboards, auditing user data, or pre-populating edit forms. A valid Bearer token is required to access this endpoint.
@@ -9,7 +9,7 @@ The Get User endpoint fetches the full profile of a specific admin user identifi
 ## Endpoint
 
 ```bash
-GET /users/:user_id
+GET /api/users/:user_id
 ```
 
 ## Authentication
@@ -64,7 +64,7 @@ GET /users/:user_id
 ## Example Request
 
 ```bash
-curl -X GET https://your-cliq-instance.com/users/a1b2c3d4-e5f6-7890-abcd-ef1234567890 \
+curl -X GET https://your-cliq-instance.com/api/users/a1b2c3d4-e5f6-7890-abcd-ef1234567890 \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 

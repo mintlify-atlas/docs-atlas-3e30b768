@@ -1,7 +1,7 @@
 ---
 title: "List Program Purchases — Cliq API Reference"
 sidebarTitle: "Purchases"
-description: "GET /programs/:program_id/purchases — Retrieve paginated purchases attributed to an affiliate program, with optional item_id filter. Requires Bearer Token."
+description: "GET /api/programs/:program_id/purchases — Retrieve paginated purchases attributed to an affiliate program, with optional item_id filter. Requires Bearer Token."
 ---
 
 Retrieve all purchases attributed to a specific affiliate program. You can optionally filter results to a single product or SKU using the `item_id` parameter. Results are paginated.
@@ -9,7 +9,7 @@ Retrieve all purchases attributed to a specific affiliate program. You can optio
 ## Method and Path
 
 ```http
-GET /programs/:program_id/purchases
+GET /api/programs/:program_id/purchases
 ```
 
 ## Authentication
@@ -86,13 +86,13 @@ A successful request returns HTTP `200 OK`.
 
 ```bash
 # All purchases for a program
-curl -X GET "http://localhost:3001/programs/$PROGRAM_ID/purchases?skip=0&take=10" \
+curl -X GET "https://your-cliq-instance.com/api/programs/$PROGRAM_ID/purchases?skip=0&take=10" \
   -H "Authorization: Bearer $TOKEN"
 ```
 
 ```bash
 # Filter purchases for a specific item
-curl -X GET "http://localhost:3001/programs/$PROGRAM_ID/purchases?item_id=pro-plan&skip=0&take=10" \
+curl -X GET "https://your-cliq-instance.com/api/programs/$PROGRAM_ID/purchases?item_id=pro-plan&skip=0&take=10" \
   -H "Authorization: Bearer $TOKEN"
 ```
 
